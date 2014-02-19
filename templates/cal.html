@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="no-js" lang='en' manifest='manifest.appcache'>
+
+<head>
+<title></title>
+  <img id= "img" border="0" src="{{ url_for('static', filename='images.jpg') }}" alt="Pulpit rock" width="90px" height="90px">
+  <link href="{{ url_for('static', filename='cal.css') }}" rel='stylesheet' type='text/css'/>
+</head>
+
+<body>
+<div id="calculator">
+	<!-- Screen and clear key -->
+	<div class="top">
+		<span class="clear">C</span>
+		<div class="screen"></div>
+	</div>
+	
+	<div class="keys">
+		<!-- operators and other keys -->
+		<span>7</span>
+		<span>8</span>
+		<span>9</span>
+		<span class="operator">+</span>
+		<span>4</span>
+		<span>5</span>
+		<span>6</span>
+		<span class="operator">-</span>
+		<span>1</span>
+		<span>2</span>
+		<span>3</span>
+		<span class="operator">÷</span>
+		<span>0</span>
+		<span>.</span>
+		<span class="eval">=</span>
+		<span class="operator">x</span>
+	</div>
+</div>
+
+</body>
+<script src="{{ url_for('static', filename='cal.js') }}"></script>
+</html>
