@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title>Cat Walk</title>
+ </head>
+ <body>
+  
+  <img style="position:absolute;" src="{{ url_for('static', filename='cat.gif') }}">
+   <audio id="meow" style="display: none">
+      <source src="{{ url_for('static', filename='cat.mp3') }}">
+      </audio>
+  <script type="text/javascript" >
+    window.onload= function(){
+      var img = document.getElementsByTagName('img')[0];
+      var meow = document.querySelector("#meow");
+            img.onmouseover = function(){
+              meow.play();
+            }
+            img.onmouseout = function(){
+              meow.pause();
+            }
+      
+img.style.left = '0px';
+var walkForwards = true;
+var storageAvailable = false;
+        if(typeof(Storage)!=="undefined")
+  {
+   storageAvailable = true; 
+  }
+
+function catWalk() {
+  var currentLeft = parseInt(img.style.left);
+  if(storageAvailable){
+    var storage = localStorage.currentLeft; 
+    if(!storage){
+      currentLeft = storage;
+    }
+       console.log(currentLeft);
+    localStorage.currentLeft = currentLeft;
+  }
+
+  if (walkForwards && (currentLeft > (window.innerWidth-img.width))) {
+    walkForwards = false;
+  }
+  if (!walkForwards && (currentLeft <= 0)) {
+    walkForwards = true;
+  }
+  
+  if (walkForwards) {
+    img.style.left = (currentLeft + 10) + 'px';
+  } else {
+    img.style.left = (currentLeft - 10) + 'px';
+  }
+}
+      
+    
+      
+      window.setInterval(catWalk, 50);
+     
+
+    }
+  </script>
+
+ </body>
+</html>

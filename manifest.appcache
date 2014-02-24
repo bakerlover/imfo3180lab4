@@ -5,16 +5,16 @@ CACHE MANIFEST
 CACHE:
 
 # html files
-#cal.html
+#cat.html
 
 
 # css files
-static/cal.css
+
 
 # images
-static/images.jpg
+static/cat.gif
 # misc
-
+static/cat.mp3
 
 FALLBACK:
 

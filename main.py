@@ -2,11 +2,17 @@
 
 # Import the Flask Framework
 from flask import Flask
+from flask import jsonify
 from flask import render_template
 app = Flask(__name__)
 # Note: We don't need to call run() since our application is embedded within
 # the App Engine WSGI application server.
 
+
+@app.route('/cat')
+def cat(name=None):
+  """ Return me template at application /me URL."""
+  return render_template('cat.html', name=name)
 
 @app.route('/')
 def hello():
@@ -20,12 +26,10 @@ def page_not_found(e):
     """Return a custom 404 error."""
     return 'Sorry, Nothing at this URL.', 404
 
-@app.route('/me')
-
-def me(name=None):
-
-  """ Return me template at application /me URL."""
-  return render_template('me.html', name=name)
+@app.route('/madlibs')
+def madlibs(name=None):
+  """ Return me template at application /madlibs URL."""
+  return render_template('madlibs.html', name=name)
 
 @app.route('/cal')
 def cal(name=None):
